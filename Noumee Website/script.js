@@ -173,7 +173,10 @@ document.querySelectorAll(".billing-option").forEach((button) => {
     const billing = button.dataset.billing;
 
     document.querySelectorAll(".billing-option").forEach((option) => {
-      option.classList.toggle("is-active", option === button);
+      const isActive = option === button;
+
+      option.classList.toggle("is-active", isActive);
+      option.setAttribute("aria-pressed", String(isActive));
     });
 
     document.querySelectorAll("[data-monthly][data-yearly]").forEach((node) => {
